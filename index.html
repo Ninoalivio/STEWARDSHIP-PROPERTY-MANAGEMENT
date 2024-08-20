@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Massillon Property Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font for social media icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif; /* Apply DM Sans font */
+        }
+
+        .bg-custom {
+            background-color: #194ca0;
+        }
+
+        html, body {
+            height: 100%; /* Ensure full height */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .bg-image {
+            background-image: url('IMAGES/P1BG.PNG');
+            background-size: cover; /* Cover the entire body */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent image repetition */
+            position: relative;
+            z-index: 1;
+        }
+
+        .fullscreen-section {
+            padding: 60px 0; /* Padding for vertical spacing */
+            
+            text-align: center; /* Center text alignment */
+            min-height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            position: relative; /* Position relative for z-index */
+            z-index: 2; /* Ensure hero section is above the feature boxes */
+        }
+
+        .fullscreen-section .hero-content {
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%; /* Set max-width to control the width */
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            right: -40%; /* Move the element slightly right of center */
+            transform: translateX(-10%); /* Adjust position */
+            z-index: 2; /* Ensure hero content is above the feature boxes */
+        }
+
+        .feature-box-container {
+            position: absolute;
+            bottom: 0; /* Position at the bottom */
+            width: 100%;
+            padding: 20px 0; /* Padding for vertical spacing */
+            z-index: 1; /* Ensure feature boxes are below the hero section */
+        }
+
+        .feature-box {
+            color: white; /* Text color */
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px; /* Space between feature boxes */
+        }
+
+        .property-management-box {
+            background-color: #1b73b8; /* Background color for Property Management */
+        }
+
+        .search-properties-box {
+            background-color: #1c4e9f; /* Background color for Search Properties */
+        }
+
+        .current-owners-box {
+            background-color: #113368; /* Background color for Current Owners */
+        }
+
+        .current-residents-box {
+            background-color: #222222; /* Background color for Current Residents */
+        }
+
+        /* Navbar Styling */
+        .navbar-custom {
+            background-color: #194ca0; /* Primary color for the navbar */
+        }
+
+        .navbar-custom .nav-link {
+            color: white;
+            margin: 0 15px; /* Add margin between tabs */
+        }
+
+        .navbar-second-layer {
+            background-color: #ffffff; /* White background for the second layer */
+        }
+
+        /* Social Media Icons Styling */
+        .social-icons {
+            position: absolute;
+            top: 50%;
+            left: 20px; /* Align to the left */
+            transform: translateY(-50%);
+            display: flex;
+            gap: 10px; /* Space between icons */
+            opacity: 1; /* Ensure icons are visible */
+        }
+
+        .social-icons a {
+            color: white !important; /* Set the icons to white */
+            font-size: 1.2rem; /* Adjust size as needed */
+        }
+
+        /* Navbar alignment */
+        .navbar-custom .navbar-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #194ca0;
+        }
+
+        .navbar-custom .navbar-nav {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Background for the second page */
+        .second-page {
+            background-image: url('IMAGES/P2BG.PNG'); /* Replace with your actual background image path */
+            background-size: cover; /* Scale the background image to cover the entire section */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            color: black; /* Text color */
+            min-height: 100vh; /* Ensure the section takes up the full viewport height */
+            padding: 60px 20px; /* Padding for spacing around the content */
+            text-align: center; /* Center align the text */
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            justify-content: flex-start; /* Align content to the top */
+            align-items: center; /* Center content horizontally */
+        }
+
+        /* Ensure proper spacing for sections */
+        .section {
+            padding-top: 60px; /* Space for the navbar */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767.98px) {
+            .fullscreen-section .hero-content {
+                text-align: center; /* Center text on small screens */
+                left: 0; /* Reset left position on small screens */
+                transform: none; /* Reset transform on small screens */
+                z-index: 2; /* Ensure hero text is above feature boxes */
+            }
+
+            .feature-box-container {
+                padding: 10px 0; /* Adjust padding for small screens */
+                z-index: 1; /* Ensure feature boxes are below hero text */
+            }
+
+            .navbar-custom .navbar-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .navbar-custom .navbar-nav {
+                position: static;
+                top: auto;
+                transform: none;
+                margin-top: 10px;
+            }
+
+            .social-icons {
+                position: static;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .fullscreen-section .feature-box h4 {
+                font-size: 1.2rem;
+            }
+
+            .fullscreen-section .feature-box ul {
+                padding-left: 0;
+                list-style: none;
+            }
+
+            .fullscreen-section .feature-box ul li {
+                font-size: 0.9rem;
+            }
+
+            .feature-box-container {
+                z-index: 1; /* Ensure feature boxes are below hero text */
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .fullscreen-section .hero-content {
+                padding: 10px;
+                right: 0;
+                transform: none;
+                max-width: 90%;
+                z-index: 2; /* Ensure hero text is above feature boxes */
+            }
+
+            .feature-box-container {
+                padding: 10px 0; /* Adjust padding for very small screens */
+                z-index: 1; /* Ensure feature boxes are below hero text */
+            }
+
+            .feature-box {
+                padding: 15px; /* Adjust padding for very small screens */
+            }
+
+            .second-page {
+                padding: 40px 10px; /* Adjust padding for very small screens */
+            }
+        }
+
+/* Third Page Styling */
+.third-page {
+    background-color: #ffffff; /* Set background color to white */
+    color: #333; /* Text color */
+    min-height: 100vh; /* Ensure the section takes up the full viewport height */
+    padding: 60px 20px; /* Padding for spacing around the content */
+    text-align: center; /* Center align the text */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center; /* Center content horizontally */
+}
+
+.header {
+    padding: 20px 0; /* Padding for header */
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Wrap columns on smaller screens */
+    gap: 20px; /* Space between columns */
+}
+
+.column {
+    flex: 1;
+    min-width: 200px; /* Minimum width for columns */
+    padding: 20px;
+}
+
+.column h3 {
+    color: #1a5ed6; /* Heading color */
+}
+
+.column p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+}
+
+.column h4 {
+    color: #1a5ed6; /* Details link color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .content {
+        flex-direction: column; /* Stack columns vertically on small screens */
+    }
+}
+
+#fourth-page {
+    display: flex;
+    min-height: 100vh; /* Ensure it covers the full viewport height */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.text-content-wrapper {
+    background-color: #222222; /* Dark grey background for the left side */
+    color: #ffffff; /* White text color for contrast */
+    padding: 40px; /* Add padding for spacing */
+    flex: 1; /* Allow this section to take up half of the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.image-content {
+    background-image: url('IMAGES/P4BG.PNG'); /* Background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    flex: 1; /* Allow this section to take up half of the width */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+
+.page-4-background {
+    background-image: url('path/to/your-image.jpg');
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed in place when scrolling */
+}
+
+.page-4-image {
+    width: 100%; /* Stretches the image to the full width of its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+}
+
+
+.fifth-page {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.fifth-page-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.image-placeholder-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.image-placeholder-container img {
+    width: 233px;
+    height: 285px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.fifth-page-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #039444;
+	border-radius: 25px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.mini-article-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mini-article-box {
+    background-color: #f7f7f7;
+    padding: 15px;
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-placeholder-container img,
+    .mini-article-box {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.mini-article-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.mini-article-box {
+    flex: 1;
+    padding: 10px;
+    margin: 0 10px;
+    text-align: left;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+
+
+.article-image {
+    width: 457px;
+    height: 359px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.article-title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.article-date {
+    font-size: 0.9em;
+    color: #666;
+	
+	
+	
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <!-- First Layer -->
+            <div class="d-flex justify-content-between align-items-center w-100 py-2 px-3 position-relative bg-custom">
+                <!-- Social Media Icons -->
+                <div class="social-icons">
+                    <a href="#" class="fab fa-facebook-f" style="color: white !important;"></a>
+                    <a href="#" class="fab fa-twitter" style="color: white !important;"></a>
+                    <a href="#" class="fab fa-instagram" style="color: white !important;"></a>
+                    <a href="#" class="fab fa-linkedin-in" style="color: white !important;"></a>
+                    <a href="#" class="fab fa-youtube" style="color: white !important;"></a>
+                </div>
+                <div class="navbar-content">
+                    <a class="nav-link" href="#">Pay Rent</a>
+                    <a class="nav-link" href="#">Repair Request</a>
+                    <a class="nav-link" href="#">Apply Now</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#">(330) 600-4556</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Second Layer -->
+    <nav class="navbar navbar-expand-lg navbar-second-layer">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="d-flex justify-content-between align-items-center w-100 py-2 px-3">
+                    <div class="navbar-brand">
+                        <img src="IMAGES/SRM.PNG" alt="Logo Placeholder">
+                    </div>
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Owners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Residents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Login</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-success ms-2" href="#">Management Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero and Features Section -->
+    <section class="bg-image">
+        <div class="fullscreen-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-6 hero-content mx-auto">
+                        <h1 class="display-5"><p style="color:black; text-align:left;"><b>MASSILLON<br>PROPERTY<br>MANAGEMENT</b></p></h1>
+                        <p class="lead" style="color:black; text-align:left;">Adding value by providing our clients<br> more margin, time, & peace of mind!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-box-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="feature-box property-management-box text-center">
+                                <h4><u>Property Management</u></h4>
+                                <ul class="list-unstyled">
+                                    <li>Residential</li>
+                                    <li>Multi-Family</li>
+                                    <li>Pricing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="feature-box search-properties-box text-center">
+                                <h4><u>Search Properties</u></h4>
+                                <ul class="list-unstyled">
+                                    <li>Available Rentals</li>
+                                    <li>Qualification Criteria</li>
+                                    <li>Resident Benefit Package</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="feature-box current-owners-box text-center">
+                                <h4><u>Current Owners</u></h4>
+                                <ul class="list-unstyled">
+                                    <li>Owner Portal</li>
+                                    <li>FAQs</li>
+                                    <li>Guarantees</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="feature-box current-residents-box text-center">
+                                <h4><u>Current Residents</u></h4>
+                                <ul class="list-unstyled">
+                                    <li>Tenant Portal</li>
+                                    <li>FAQs</li>
+                                    <li>Resources</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="second-page" class="section second-page">
+        <div class="container">
+            <!-- Main Content -->
+            <div class="text-center">
+                <h1 class="display-4" style="font-size: 20px;"><strong>WELCOME TO</strong></h1>
+                <h2 class="display-5"><strong>STEWARDSHIP PROPERTY MANAGEMENT</strong></h2>
+                <p class="lead mt-4">Based in Massillon, Ohio, Stewardship Property Management has served the local community and surrounding areas for many years. Our mission is to help each client achieve their investment goals while showing each and every resident the respect and responsiveness they deserve. We believe in the good ole-fashioned "Golden Rule" and use it as the standard in every aspect of our business.</p>
+                <a href="#" class="btn btn-success mt-3">Contact Us Today To Learn More</a>
+            </div>
+        </div>
+    </section>
+
+<section id="third-page" class="section third-page">
+    <div class="container">
+        <div class="header">
+            <h1>DISCOVER WHAT WE DO AS YOUR MASSILLON BASED PROPERTY MANAGER</h1>
+        </div>
+        <div class="row">
+            <!-- First Layer -->
+            <div class="col-md-12 first-layer">
+                <div class="content">
+                    <div class="column" style="text-align: left;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-rocket" style="font-size: 24px; color: #1a5ed6; margin-right: 10px;"></i>
+                            <h3 style="font-size: 18px;">Marketing</h3>
+                        </div>
+                        <p style="font-size: 14px;">Our team ensures your property is easily located to the best residents through active online advertising and in-person marketing practices, all ensuring maximum efficiency and virtual visibility and minimal vacancy time.</p>
+                        <h4 style="font-size: 15px; color: green;"><b>Details <i class="fas fa-plus" style="font-size: 12px;"></i></b></h4>
+                    </div>
+                    <div class="column" style="text-align: left;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="font-size: 24px; color: #1a5ed6; margin-right: 10px;"></i>
+                            <h3 style="font-size: 18px;">Screening</h3>
+                        </div>
+                        <p style="font-size: 14px;">Our thorough screening process ensures the right tenant for your property by conducting extensive checks on credit, employment, criminal history, and references while adhering to Ohio and Federal fair housing laws.</p>
+                        <h4 style="font-size: 15px; color: green;"><b>Details <i class="fas fa-plus" style="font-size: 12px;"></i></b></h4>
+                    </div>
+                    <div class="column" style="text-align: left;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-credit-card" style="font-size: 24px; color: #1a5ed6; margin-right: 10px;"></i>
+                            <h3 style="font-size: 18px;">Rent Collection</h3>
+                        </div>
+                        <p style="font-size: 14px;">We ensure timely payments by promptly processing late fees and facilitating online payment, all while treating all tenants with respect and dignity.</p>
+                        <h4 style="font-size: 15px; color: green;"><b>Details <i class="fas fa-plus" style="font-size: 12px;"></i></b></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Layer -->
+            <div class="col-md-12 second-layer">
+                <div class="content">
+                    <div class="column" style="text-align: left;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-tools" style="font-size: 24px; color: #1a5ed6; margin-right: 10px;"></i>
+                            <h3 style="font-size: 18px;">Maintenance</h3>
+                        </div>
+                        <p style="font-size: 14px;">Our maintenance service ensures a well-maintained home, resulting in quicker rentals and happier residents, by using a strategic blend of in-house teams and trusted contractors.</p>
+                        <h4 style="font-size: 15px; color: green;"><b>Details <i class="fas fa-plus" style="font-size: 12px;"></i></b></h4>
+                    </div>
+                    <div class="column" style="text-align: left;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-dollar-sign" style="font-size: 24px; color: #1a5ed6; margin-right: 10px;"></i>
+                            <h3 style="font-size: 18px;">Financial Reporting</h3>
+                        </div>
+                        <p style="font-size: 14px;">We provide detailed monthly financial reports and ongoing expense tracking, accessible through our online portal, with direct access to our finance team for any inquiries.</p>
+                        <h4 style="font-size: 15px; color: green;"><b>Details <i class="fas fa-plus" style="font-size: 12px;"></i></b></h4>
+                    </div>
+                    <div class="column" style="text-align: left;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-box" style="font-size: 24px; color: #1a5ed6; margin-right: 10px;"></i>
+                            <h3 style="font-size: 18px;">Eviction Management</h3>
+                        </div>
+                        <p style="font-size: 14px;">In the unfortunate event that a tenant needs to be evicted from your rental, we will handle all of the eviction related tasks on your behalf to the extent approved by our attorney.</p>
+                        <h4 style="font-size: 15px; color: green;"><b>Details <i class="fas fa-plus" style="font-size: 12px;"></i></b></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer Section -->
+<footer style="background-color: #039444; padding: 20px; text-align: center; color: white;">
+    <p style="font-size: 16px; margin: 0; display: inline-block;">
+        Minimize Risk. Eliminate Stress. Maximize ROI.
+    </p>
+    <a href="#learn-more" style="color: white; text-decoration: none; font-size: 16px; margin-left: 10px;">
+        Learn more <i class="fas fa-arrow-circle-right"></i>
+    </a>
+</footer>
+<section id="fourth-page" class="section">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <!-- Left Side -->
+            <div class="col-md-7 left-side" style="background-color: #222222; color: white; padding: 60px;">
+                <div class="content">
+                    <h1 class="mb-5" style="margin-top: 60px;">WHY HIRE US VS. SELF-MANAGING?</h1>
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-clock fa-2x me-3"></i>
+                        <div>
+                            <h3 style="font-size: 20px;">Significantly Less Stress & Time Involvement</h3>
+                            <p>One of the single greatest struggles of owning rental real estate can<br> be the day to day involvement of responding to residents,<br> coordinating vacancy renovations/repairs, showing vacant units,<br> chasing delinquent rents, and on and on!... This is one of the key<br> reasons why investors reach out to us again and again.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-university fa-2x me-3"></i>
+                        <div>
+                            <h3 style="font-size: 20px;">We're an Active Investor-Led Company</h3>
+                            <p>Unlike most management companies, our owner is an active investor<br> and Stewardship client himself. Stewardship was born from a need to<br> take a different and truly strategic approach to handling every aspect<br> of property management, material sourcing, and the resident<br> relationship.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-shield-alt fa-2x me-3"></i>
+                        <div>
+                            <h3 style="font-size: 20px;">Better Screening Process, Better Residents</h3>
+                            <p>Because of our screening software/tools & extensive resources, we<br> can screen more applicants, and with more filters. At times, we even<br> have an applicant waiting list for properties due to multiple marketing<br> sources, many different locations (often) available simultaneously,<br> and momentum from being in the business for nearly 10 years.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-lock fa-2x me-3"></i>
+                        <div>
+                            <h3 style="font-size: 20px;">Risk Mitigation</h3>
+                            <p>Our team goes through consistent and ongoing fair housing training<br> to ensure we treat each person we interact with as an equal in every<br> way. We also periodically invite staff from nearby fair housing offices<br> to visit and keep us aware of any policy changes, etc. At Stewardship.<br> we don't just treat everyone equally because it's the law, we do it<br> because it's the right thing to do!</p>
+                            <a href="#" class="btn btn-success mt-3">Schedule A Call</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side -->
+            <div class="col-md-5 right-side" style="background: url('IMAGES/P4BG.PNG') no-repeat center center; background-size: cover; height: 150vh;">
+            </div>
+        </div>
+    </div>
+</section>
+<div class="fifth-page">
+    <h1 class="fifth-page-header">You’re protected with our guarantees</h1>
+    <div class="image-placeholder-container">
+        <img src="IMAGES/RESIDENT_PLACEMENT.PNG" alt="Resident Placement 1">
+        <img src="IMAGES/MANAGEMENT_FEE.PNG" alt="Resident Placement 2">
+        <img src="IMAGES/LEASING_FEE.PNG" alt="Resident Placement 3">
+        <img src="IMAGES/LEGAL_COMPLIANCE.PNG" alt="Resident Placement 4">
+        <img src="IMAGES/ONLINE_REPORTS.PNG" alt="Resident Placement 5">
+        <img src="IMAGES/PROPERTY_INSPECTIONS.PNG" alt="Resident Placement 6">
+    </div>
+    <button class="fifth-page-button">There’s More! View All</button>
+<div class="mini-article-container">
+    <div class="mini-article-box">
+        <img src="IMAGES/ARTICLE_1.PNG" alt="Article Image" class="article-image">
+        <h3 class="article-title">Super Enticing Blog Post Title That Users Can’t Help But Read</h3>
+        <p class="article-date">March 5th, 2026</p>
+    </div>
+     <div class="mini-article-box mini-article-box-2">
+            <h2 style="font-size: 24px";>Super Enticing Blog<br> Post Title That Users<br> Can’t Help But Read.</h2>
+            <p class="article-date">March 5th, 2026</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    <div class="mini-article-box">Mini Article 3</div>
+    <div class="mini-article-box">Mini Article 4</div>
+</div>
+</div>
+
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+
+</html>
